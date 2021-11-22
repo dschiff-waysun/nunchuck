@@ -7,10 +7,11 @@
     get: function() {
       return _instance;
     },
-    init: function(type, socket){
+    init: function(type, socket, id){
       return _instance || new Nunchuck({
         type: type,
-        socket: socket
+        socket: socket,
+        id: id
       })
     }
   };
@@ -20,7 +21,7 @@
    */
   function Nunchuck(options){
     _instance = this;
-    this.id = Math.floor(Math.random()*9000) + 1000;
+    this.id = (options.id !== undefined) ? options.id : Math.floor(Math.random()*9000) + 1000;
     this.username = "";
     this.roomId = this.id;
     this.type = options.type;

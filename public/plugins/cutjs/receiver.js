@@ -15,6 +15,7 @@
 // movePlane({username: "katie", id: "1234", buttons: ["leftArrow"], orientation: {alpha: 0.0, beta: 0.0, gamma: 0.0}, timestamp: "1238794"});
 
 movePlane = function(obj) {
+  console.log(obj);
   var possible_commands = ["LEFT", "RIGHT", "UP", "DOWN", "A", "B", "START"];
   var pressed_buttons = obj.buttons;
   var orientation = obj.orientation;
@@ -45,20 +46,22 @@ movePlane = function(obj) {
     }
   }
 
-  if (orientation["beta"] > 20.0) {
-    player_data[user_id][active_commands["RIGHT"]] = true;
-  } else if (orientation["beta"] < -20.0) {
-    player_data[user_id][active_commands["LEFT"]] = true;
-  } else {
-    player_data[user_id][active_commands["LEFT"]] = false;
-  }
-
-  if (orientation["gamma"] > 0.0) {
-    player_data[user_id][active_commands["UP"]] = true;
-  } else if (orientation["gamma"] < -40.0) {
-    player_data[user_id][active_commands["DOWN"]] = true;
-  } else {
-    player_data[user_id][active_commands["DOWN"]] = false;
+  if (orientation){
+    if (orientation["beta"] > 20.0) {
+      player_data[user_id][active_commands["RIGHT"]] = true;
+    } else if (orientation["beta"] < -20.0) {
+      player_data[user_id][active_commands["LEFT"]] = true;
+    } else {
+      player_data[user_id][active_commands["LEFT"]] = false;
+    }
+  
+    if (orientation["gamma"] > 0.0) {
+      player_data[user_id][active_commands["UP"]] = true;
+    } else if (orientation["gamma"] < -40.0) {
+      player_data[user_id][active_commands["DOWN"]] = true;
+    } else {
+      player_data[user_id][active_commands["DOWN"]] = false;
+    }
   }
 }
 

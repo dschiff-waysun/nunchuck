@@ -34,9 +34,9 @@ require('./server/nunchuck-server')(io);
 
 // -------------------------------
 
-// Start the Server listening on 3000
-http.listen(3000, function(){
-  console.log('listening on *:3000');
+// Start the Server listening on 8080
+http.listen(8080, function(){
+  console.log('listening on *:8080');
 });
 
 module.exports = app;

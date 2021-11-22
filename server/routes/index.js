@@ -34,6 +34,10 @@ router.get('/planegame', function(req, res){
   res.sendfile('views/planegame.html');
 });
 
+router.get('/planegame_client', function(req, res){
+  res.sendfile('views/planegame_client.html');
+});
+
 router.get('/nes', function(req, res){
   res.sendfile('views/nes_emu.html');
 });
